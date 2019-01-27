@@ -1,0 +1,6 @@
+update {
+
+ if (transform.position.x < -15)  // will destroy everything that reach the if statement that is connected to the script 
+        {
+            Destroy(gameObject);
+        }
