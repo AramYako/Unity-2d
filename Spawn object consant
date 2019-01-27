@@ -1,0 +1,88 @@
+// Object getting spawned through an array, The object getting spawned randomly from array and random waittime. 
+
+public class Objectspawner : MonoBehaviour
+{
+    
+    public GameObject[] obstacles;
+    public bool GameOver = false;
+    float waitTime;
+    public float MinDelay, MaxDelay;
+    
+    void Start()
+    {
+        StartCoroutine("Spawn");
+    }
+
+
+    IEnumerator Spawn()
+    {
+        while (!GameOver)
+        {
+            ObstaclesSpawner();
+            waitTime = Random.Range(MinDelay, MaxDelay);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    void ObstaclesSpawner( )
+    {
+            int random2 = Random.Range(0, obstacles.Length);  
+            Vector3 AirPostion = new Vector3(transform.position.x, 1, 0);   // if you want to spawn object in new y position form poition
+
+            Instantiate(obstaclesAir[random2], AirPostion, Quaternion.identity); // Instantiate create it 
+        }
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+// Spawn object both in the ground and in the air // endless runner 
+
+
+
+
+public class Objectspawner : MonoBehaviour
+{
+    
+    public GameObject[] obstacles;
+    public GameObject[] obstaclesAir;
+    public bool GameOver = false;
+    float waitTime;
+    public float MinDelay, MaxDelay;
+    // Start is called before the first frame update
+    void Start()
+    {
+        StartCoroutine("Spawn");
+    }
+
+
+    IEnumerator Spawn()
+    {
+        while (!GameOver)
+        {
+            int ChooseObstacle = Random.Range(0, 2);
+            ObstaclesSpawner(ChooseObstacle);
+            waitTime = Random.Range(MinDelay, MaxDelay);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    void ObstaclesSpawner( int ChooseObstacle)
+    {
+        Debug.Log(ChooseObstacle);
+  
+        if (ChooseObstacle == 1)
+        {
+            int random = Random.Range(0, obstacles.Length);
+            Instantiate(obstacles[random], transform.position, Quaternion.identity);
+        }
+        else if(ChooseObstacle==0)
+        {
+            int random2 = Random.Range(0, obstaclesAir.Length);
+            Vector3 AirPostion = new Vector3(transform.position.x, 1, 0);
+
+            Instantiate(obstaclesAir[random2], AirPostion, Quaternion.identity);
+        }
+    }
+}
+
