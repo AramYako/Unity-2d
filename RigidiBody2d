@@ -1,0 +1,30 @@
+// how to connect to rigidbody2d
+// we usually connect to it when we want to move something 
+// moveing something we use velocity that is a function in rigidbody2d
+
+
+
+public class Obstacles : MonoBehaviour
+{
+    [SerializeField]
+    private float ObstacleSpeed =5;
+    Rigidbody2D rg;
+    
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        rg = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        rg.velocity = Vector2.left * ObstacleSpeed;
+
+        if (transform.position.x < -15)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+}
