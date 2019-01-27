@@ -1,0 +1,3 @@
+int random2 = Random.Range(0, 2); // produce random number between 0 and 1
+int random2 = Random.Range(0, 3); // produce random number between 0 and 2
+int random2 = Random.Range(0, obstaclesAir.Length); // produce random number between 0 and arrays lenght
