@@ -1,0 +1,26 @@
+{
+    [SerializeField]
+    private float ObstacleSpeed;
+    Rigidbody2D rg;   
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        rg = GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        rg.velocity = Vector2.left * ObstacleSpeed;  // move the obstacle to the left 
+
+        if (transform.position.x < -15)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+}
