@@ -1,4 +1,5 @@
 // Object getting spawned through an array, The object getting spawned randomly from array and random waittime. 
+// the gravity should be 0 in rigidbody otherwise object will fall
 
 public class Objectspawner : MonoBehaviour
 {
