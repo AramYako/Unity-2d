@@ -1,0 +1,6 @@
+//stantiate create clones/copies of a object. Basiclly it create/spawn objects. 
+//First input: obstaclesAir[random2], is what should be create. This case it's from an array and the part of the array is random2, which it random number
+//second input is the position the object should be spawned:    Vector3 AirPostion = new Vector3(transform.position.x, 1, 0);
+//third  Quaternion.identity: Quaternion corresponds to "no rotation" - the object is perfectly aligned with the world or parent axes.
+
+Instantiate(obstaclesAir[random2], AirPostion, Quaternion.identity);
