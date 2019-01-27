@@ -1,0 +1,5 @@
+//This is how you create vector3 and vector 2 and vector4   
+// first is x, second y and last z
+//transform.position.x is currentny x position
+   
+   Vector3 AirPostion = new Vector3(transform.position.x, 1, 0);
