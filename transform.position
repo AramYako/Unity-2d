@@ -1,0 +1,2 @@
+transform.position // is the current x,y,z position
+transform.position.x // current x position
