@@ -1,0 +1,66 @@
+Audi Script and gameobject 
+Gameobject called AudioManager 
+Script called AudioManagerScript
+The script that will call for audio is called PlayerController and is connected to another gameObject 
+
+
+AudioScript // this scrip will contain class/function for audio 
+
+public class AudioManagerScript : MonoBehaviour
+{
+
+    public  AudioSource SoundSoruce;
+    public AudioClip Jump;
+    public AudioClip Slide;
+   
+    private void Awake()
+    {
+        SoundSoruce = GetComponent<AudioSource>();
+    }
+public  void PlayJumpSound()
+{
+ 
+   SoundSoruce.clip = Jump;
+   SoundSoruce.Play();
+}
+public  void PlaySlideSound()
+{
+
+    SoundSoruce.clip = Slide;
+    SoundSoruce.Play();
+}
+
+}
+
+
+
+
+PlayerController script /// This will call the audio script to play audio 
+
+public class PlayerController : MonoBehaviour
+{
+
+    AudioManagerScript AudioSounds;
+    
+    private void Awake()
+    {
+        GameObject GettingSound = GameObject.Find("AudioManager");
+        AudioSounds = GettingSound.GetComponent<AudioManagerScript>();
+    }
+    
+   void JackJump()
+    {
+    
+    AudioSounds.PlayJumpSound();
+
+        
+    }
+    void JackSlide()
+    {
+        AudioSounds.PlaySlideSound();
+
+    }
+   
+}
+
+
